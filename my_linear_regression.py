@@ -2,7 +2,7 @@ import numpy as np
 
 class LinearRegression:
     def __init__(self):
-        print('Hello, Regression')
+        self.is_fitted = False
 
     def fit(self, X, y, epochs=1000, learning_rate=0.01):
         p = X.shape[1]
@@ -29,12 +29,17 @@ class LinearRegression:
 
         print(f'MSE loss at epoch {epochs} = {losses[-1]}')
 
-        self.losses = losses
-        self.w = w
-        self.b = b
+        self.w_ = w
+        self.b_ = b
+        self.is_fitted = True
+
+        return losses, w, b
 
     def predict(self, X):
-        y_pred = np.dot(X, self.w.T) + self.b
+        if not self.is_fitted:
+            raise ValueError('You need to fit the model first before prediction')
+
+        y_pred = np.dot(X, self.w_.T) + self.b_
         return y_pred
 
     def __predict(self, X, w, b):
