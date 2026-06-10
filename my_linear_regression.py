@@ -34,8 +34,6 @@ class LinearRegression:
         self.b_ = b
         self.is_fitted = True
 
-        return losses, w, b
-
     def predict(self, X):
         if not self.is_fitted:
             raise ValueError('You need to fit the model first before prediction')
