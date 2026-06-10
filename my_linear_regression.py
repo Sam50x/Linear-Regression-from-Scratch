@@ -29,6 +29,7 @@ class LinearRegression:
 
         print(f'MSE loss at epoch {epochs} = {losses[-1]}')
 
+        self.losses_ = losses
         self.w_ = w
         self.b_ = b
         self.is_fitted = True
