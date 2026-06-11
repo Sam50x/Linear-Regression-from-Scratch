@@ -1,10 +1,11 @@
 import numpy as np
+import math
 
 class LinearRegression:
     def __init__(self):
         self.is_fitted = False
 
-    def fit(self, X, y, epochs=1000, learning_rate=0.01):
+    def fit(self, X, y, epochs=1000, learning_rate=0.01, loss_function='mse'):
         p = X.shape[1]
         np.random.seed(42)
 
@@ -16,7 +17,7 @@ class LinearRegression:
         for epoch in range(epochs):
             y_pred = self.__predict(X, w, b)
 
-            loss = self.__calculate_loss(y, y_pred)
+            loss = self.__calculate_loss(y, y_pred, loss_function=loss_function)
             losses.append(loss)
 
             grad_b, grad_w = self.__calculate_gradients(X, y, y_pred)
@@ -25,9 +26,9 @@ class LinearRegression:
             w = w - learning_rate * grad_w
 
             if epoch % 100 == 0:
-                print(f'MSE loss at epoch {epoch} = {loss}')
+                print(f'{loss_function.upper()} loss at epoch {epoch} = {loss}')
 
-        print(f'MSE loss at epoch {epochs} = {losses[-1]}')
+        print(f'{loss_function.upper()} loss at epoch {epochs} = {losses[-1]}')
 
         self.losses_ = losses
         self.w_ = w
@@ -45,10 +46,15 @@ class LinearRegression:
         y_pred = np.dot(X, w.T) + b
         return y_pred
 
-    def __calculate_loss(self, y_true, y_pred):
+    def __calculate_loss(self, y_true, y_pred, loss_function):
         n = len(y_true)
 
-        loss = np.sum((y_pred - y_true) ** 2) / n
+        if loss_function == 'mse':
+            loss = np.sum((y_pred - y_true) ** 2) / n
+        elif loss_function == 'rmse':
+            loss = math.sqrt(np.sum((y_pred - y_true) ** 2) / n)
+        elif loss_function == 'mae':
+            loss = np.sum(abs(y_pred - y_true)) / n
 
         return loss
 
