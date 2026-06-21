@@ -1,6 +1,6 @@
 # Linear Regression: From Scratch
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/82rWXF8JZ48?si=NVn-7XK24aVHVLoC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Linear Regression From Scratch](https://img.youtube.com/vi/82rWXF8JZ48/maxresdefault.jpg)](https://youtu.be/82rWXF8JZ48)
 
 ## Intro
 
