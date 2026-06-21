@@ -1,5 +1,7 @@
 # Linear Regression: From Scratch
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/82rWXF8JZ48?si=NVn-7XK24aVHVLoC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Intro
 
 My name is Seif, a Data Science student, and I am trying to make my way into the tech industry as a Machine Learning Engineer, so I started a challenge: Building Machine Learning Algorithms from scratch. Using no built-in libraries, and most importantly no AI. Starting the challenge with Linear Regression.
